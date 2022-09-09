@@ -1,0 +1,14 @@
+.itemContainer{
+    padding: 15px;
+}
+.itemImg{
+    height: 150px;
+}
+
+.itemTitle{
+    color: blue;
+}
+
+.itemPrice{
+    color: red;
+}
