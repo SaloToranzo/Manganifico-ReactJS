@@ -1,0 +1,22 @@
+.itemDetailContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.itemImg{
+    max-height: 300px;
+
+}
+
+.itemTitle{
+    color: blue;
+}
+
+.itemPrice{
+    color: red;
+}
+
+.itemDetail{
+    text-align: center;    
+}
