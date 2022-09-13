@@ -1,4 +1,4 @@
-import './ItemDetail.css'
+import './ItemDetail.css';
 
 const ItemDetail = ({product}) =>{
     console.log(product)
