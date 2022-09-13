@@ -7,7 +7,7 @@ const Item = ({title, price, pictureUrl, category}) => {
                 <img className="itemImg" src={pictureUrl} alt={title}/>
                 <h2 className="itemTitle">{title}</h2>
                 <p className="itemPrice">{price}</p>
-                <p>{category}</p>
+                <p>Categoria: {category}</p>
             </div>
         </div>
   )

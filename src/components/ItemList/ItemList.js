@@ -17,6 +17,7 @@ const ItemList = ({list}) => {
                             pictureUrl={product.pictureUrl}
                             detail={product.detail}
                             category={product.category}
+                            categoryId={product.categoryId}
                         />
                     </Link>
                 ))
