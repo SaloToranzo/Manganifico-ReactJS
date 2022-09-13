@@ -3,29 +3,36 @@ import './ItemListContainer.css'
 import data from '../../components/mockData';
 import { useEffect, useState } from 'react';
 import ItemList from '../../components/ItemList/ItemList';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () =>{
+    const {categoryId} = useParams();
+    console.log(categoryId);
     const [productList, setProductList] = useState([]);
-    
-    useEffect(() => {
-        getProducts.then((response) =>{
-            setProductList(response);
-        })
-        .catch((err)=> console.log(err));
-    },[]);
 
-    const getProducts = new Promise((resolve, reject) =>{
+    useEffect (() => {
+        if(categoryId){
+            const response = data.filter((response) => response.categoryId === categoryId)
+            setProductList(response);
+        }else{
+            getProducts.then((response) => {
+                setProductList(response);
+            })
+        }        
+    },[categoryId])
+
+    const getProducts = new Promise((resolve, reject) => { 
             setTimeout(() => {
                 resolve(data);
-                reject('Hubo un error');
             }, 2000);
+            
         });
 
     return(
-        <>
+        <div className='itemListContainer'>
             <ItemList list={productList}
             />
-        </>
+        </div>
     )
 };
 

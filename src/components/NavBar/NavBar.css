@@ -2,6 +2,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: rgb(38, 70, 83);
+}
+
+a{
+    text-decoration: none;
 }
 
 .navLogo{
@@ -21,4 +26,12 @@
     margin: 10px;
     border: solid black 2px;
     border-radius: 30px;
+}
+
+.active{
+    color: rgb(231, 111, 81);
+}
+
+.notActive{
+    color: rgb(42, 157, 143);
 }

@@ -7,7 +7,6 @@ const ItemDetail = ({product}) =>{
             <h2 className="itemTitle">{product.title}</h2>
             <img src={product.pictureUrl} alt={product.title} className="itemImg"/>
             <h3 className="itemPrice">{product.price}</h3>
-            <p>Categoria: {product.category}</p>
             <p className="itemDetail">{product.detail}</p>       
         </div>
     )

@@ -1,9 +1,10 @@
+import './ItemList.css'
 import Item from "../Item/Item";
 import { Link } from "react-router-dom";
 
 const ItemList = ({list}) => {
     return (
-        <div className="itemListContainer">
+        <div className="itemList">
             {
                 list.map((product) =>(
                     <Link
@@ -17,7 +18,6 @@ const ItemList = ({list}) => {
                             pictureUrl={product.pictureUrl}
                             detail={product.detail}
                             category={product.category}
-                            categoryId={product.categoryId}
                         />
                     </Link>
                 ))

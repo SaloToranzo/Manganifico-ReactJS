@@ -11,32 +11,32 @@ const NavBar = () =>{
             </NavLink>
             <ul className='navMenu'>
                 <li>
-                    <NavLink to={'/'}>
+                    <NavLink to={'/'} className={({isActive}) => (isActive ? 'active' : 'notActive')}>
                         Inicio
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/categoryId/action'}>
+                    <NavLink to={'/category/action'} className={({isActive}) => (isActive ? 'active' : 'notActive')}>
                         Accion
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/categoryId/adventure'}>
+                    <NavLink to={'/category/adventure'} className={({isActive}) => (isActive ? 'active' : 'notActive')}>
                         Aventura
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/categoryId/sports'}>
+                    <NavLink to={'/category/sports'} className={({isActive}) => (isActive ? 'active' : 'notActive')}>
                         Deportes
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/categoryId/fantasy'}>
+                    <NavLink to={'/category/fantasy'} className={({isActive}) => (isActive ? 'active' : 'notActive')}>
                         Fantasia
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/contact'}>
+                    <NavLink to={'/contact'} className={({isActive}) => (isActive ? 'active' : 'notActive')}>
                         Contacto
                     </NavLink>                  
                 </li>
