@@ -1,17 +1,12 @@
 import './ItemCount.css'
-import { useState } from "react";
 
-const ItemCount = () =>{
-    const stock = 5;
-    const initial = 1;
-    const [counter, setCounter] = useState(initial);
-
+const ItemCount = ({ counter, setCounter, stock }) =>{
     const sum = () => {
         counter < stock ? setCounter(counter +1) : alert('No hay más stock')
     }
 
     const substract = () =>{
-        counter > 0 ? setCounter(counter -1) : alert('Carrito vacio')
+        counter > 0 ? setCounter(counter -1) : alert('El carrito esta vacio')
     }
     
     const onAdd = () =>{

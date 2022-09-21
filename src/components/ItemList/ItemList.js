@@ -18,6 +18,7 @@ const ItemList = ({list}) => {
                             pictureUrl={product.pictureUrl}
                             detail={product.detail}
                             category={product.category}
+                            stock={product.stock}
                         />
                     </Link>
                 ))
