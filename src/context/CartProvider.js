@@ -17,16 +17,14 @@ export const CartProvider = ({children}) => {
         return cart.some((item) => item.id === id);
     };
 
-    const clear = () =>{
+    const clearCart = () =>{
         setCart([]);
     };
 
     const removeItem = (productId) =>{
         let newCart = [];
         cart.forEach((product) =>{
-            if(product.id === productId){
-                console.log(product);
-            } else{
+            if(product.id !== productId){
                 newCart.push(product);
             }
         });
@@ -34,7 +32,7 @@ export const CartProvider = ({children}) => {
     }
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeItem}}>
+        <CartContext.Provider value={{cart, addToCart, removeItem, clearCart}}>
             {children}
         </CartContext.Provider>
     );
