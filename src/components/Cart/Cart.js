@@ -23,7 +23,7 @@ const Cart = () => {
                             <p>{item.title}</p>
                             <img src={item.image} alt={item.title} />
                             <p>{item.price}</p>
-                            <p>{item.quatity}</p>
+                            <p>{item.quantity}</p>
                             <button onClick={() => removeItem(item.id)}>
                                 Eliminar producto del carrito
                             </button>

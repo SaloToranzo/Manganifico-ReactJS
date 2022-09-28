@@ -29,7 +29,7 @@ const ItemDetail = ({product}) =>{
                 stock={product.stock}
                 />
             <div className='cartBtn'>
-                <button className='addToCart' onClick={() => onAdd(product)}>Agregar al carrito</button>
+                <button className='addToCart' onClick={() => onAdd(product, count)}>Agregar al carrito</button>
             </div>
             <Link to={'/cart'} onClick={handleClick}>
                 Ir al carrito    
