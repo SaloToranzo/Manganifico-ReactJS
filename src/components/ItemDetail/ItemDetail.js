@@ -6,12 +6,12 @@ import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({product}) =>{
     const [count, setCount] = useState(1);
+    const { addToCart } = useContext(CartContext);
 
     const handleClick = () =>{
         console.log(count)
     };
 
-    const { addToCart } = useContext(CartContext);
 
     function onAdd (product, count) {
         addToCart(product, count)
@@ -22,7 +22,7 @@ const ItemDetail = ({product}) =>{
             <h2 className="itemTitle">{product.title}</h2>
             <img src={product.image} alt={product.title} className="itemImg"/>
             <h3 className="itemPrice">{product.price}</h3>
-            <p className="itemDetail">{product.detail}</p>
+            <p className="itemDetail">{product.description}</p>
             <ItemCount
                 setCount={setCount}
                 count={count}
