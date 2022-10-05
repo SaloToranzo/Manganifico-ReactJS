@@ -6,31 +6,38 @@ import { useParams } from 'react-router-dom';
 import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore';
 
 const ItemListContainer = () => {
-    const { categoryId } = useParams();
+    const { categoryName } = useParams();
     const [productList, setProductList] = useState([]);
+
+    console.log(categoryName)
 
     useEffect(() => {
         getProducts()    
-    }, [categoryId])
+    }, [categoryName])
 
     const getProducts = () => {
         const db = getFirestore();
         const querySnapshot = collection(db, 'items');
-        if (categoryId) {
-            const queryFilter = query(querySnapshot, where("category", "==", categoryId))
-            getDocs(queryFilter).then((response) => {
-                const data = response.docs.map((doc) => {
-                    return { id: doc.id, ...doc.data() };
+        if(categoryName){
+            const queryFilter = query(
+                querySnapshot, 
+                where('categoryId', '==', categoryName
+            ));
+            getDocs(queryFilter).then((response) =>{
+                const data = response.docs.map((product) =>{
+                    console.log(product.data())
+                    return { id: product.id, ...product.data() }
                 });
-                setProductList(data);
+                setProductList(data)
             });
-        } else {
-            getDocs(querySnapshot).then((response) => {
-                const data = response.docs.map((doc) => {
-                    return { id: doc.id, ...doc.data() };
-                })
-                setProductList(data);
-            }).catch((err) => console.log(err));
+        } else{
+            getDocs(querySnapshot).then((response) =>{
+                const data = response.docs.map((product) =>{
+                    console.log(product.data())
+                    return { id: product.id, ...product.data() }
+                });
+                setProductList(data)
+            });
         };
     };
 

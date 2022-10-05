@@ -3,18 +3,21 @@ import { CartContext } from './CartContext';
 
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
+    const [totalItems, setTotalItems] = useState(0);
 
     const addToCart = (item, quantity) => {
-        if (isInCart(item.id)) {
-            alert('El producto ya se encuentra en el carrito');
-        } else {
+        const itemFound = isInCart(item.id);
+        setTotalItems(totalItems + quantity);
+        if(itemFound){
+            itemFound.quantity = itemFound.quantity += quantity;
+        } else{
             setCart([...cart, {...item, quantity}]);
-        }
-        console.log('cart', [...cart, {...item, quantity}]);
+        };
+        console.log(totalItems)
     };
 
     const isInCart = (id) => {
-        return cart.some((item) => item.id === id);
+        return cart.find((item) => item.id === id);
     };
 
     const clearCart = () =>{
@@ -31,8 +34,13 @@ export const CartProvider = ({children}) => {
         setCart(newCart);
     }
 
+    const itemsTotal = () => {  
+        return cart.reduce((total, item) => total + item.quantity, 0);
+      }
+
+
     return (
-        <CartContext.Provider value={{cart, addToCart, removeItem, clearCart}}>
+        <CartContext.Provider value={{cart, addToCart, removeItem, clearCart, itemsTotal}}>
             {children}
         </CartContext.Provider>
     );
