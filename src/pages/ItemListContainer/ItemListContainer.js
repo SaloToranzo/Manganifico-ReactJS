@@ -6,22 +6,22 @@ import { useParams } from 'react-router-dom';
 import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore';
 
 const ItemListContainer = () => {
-    const { categoryName } = useParams();
+    const { categoryId } = useParams();
     const [productList, setProductList] = useState([]);
 
-    console.log(categoryName)
+    console.log(categoryId)
 
     useEffect(() => {
         getProducts()    
-    }, [categoryName])
+    }, [categoryId])
 
     const getProducts = () => {
         const db = getFirestore();
         const querySnapshot = collection(db, 'items');
-        if(categoryName){
+        if(categoryId){
             const queryFilter = query(
                 querySnapshot, 
-                where('categoryId', '==', categoryName
+                where('categoryId', '==', categoryId
             ));
             getDocs(queryFilter).then((response) =>{
                 const data = response.docs.map((product) =>{

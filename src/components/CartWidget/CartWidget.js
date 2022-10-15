@@ -3,12 +3,12 @@ import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 const CartWidget = () =>{
-    const {totalItems} = useContext(CartContext);
+    const {cart} = useContext(CartContext);
 
     return (       
         <div>
             <img src={Cart} className='cart' alt='cartImg' />
-            <p className='cartTotal'>{totalItems}</p>
+            <p className='cartTotal'>{cart.reduce((total, item) => total + item.quantity, 0)}</p>
         </div>
     )
 };
