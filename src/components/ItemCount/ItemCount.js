@@ -15,10 +15,9 @@ const ItemCount = ({ count, setCount, stock }) =>{
         <div className="itemCount">
             <div className='buttonContainer'>
                 <button onClick={substract} className="counterButton">-</button>
-                <h2 className='count'>{count}</h2>
+                <h2 className='counter'>{count}</h2>
                 <button onClick={sum} className="counterButton">+</button>
             </div>
-            
         </div>
     )
 

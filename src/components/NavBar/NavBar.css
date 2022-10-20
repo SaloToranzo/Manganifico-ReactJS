@@ -1,37 +1,46 @@
-.navContainer{
+.navContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-color: rgb(38, 70, 83);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.navLogo{
-    height: 50px;
-}
-
-.navMenu{
-    list-style: none;
-    display: inline-flex;
-    justify-content: space-around;
+.navbarLogo {
+    display: flex;
+    justify-content: flex-start;
     align-content: center;
+    padding: 1rem;
+    text-decoration: none;
+    text-align: center;
 }
 
-.navMenu li{
-    font-size: 15px;
-    padding: 5px;
-    margin: 10px;
-    border: solid black 2px;
-    border-radius: 30px;
+.navTitle,
+.navTitle:hover {
+    margin: 1rem;
+    text-align: center;
+    font-size: 3rem;
+    text-decoration: none;
+    color: rgb(233, 196, 106);
+    font-family: 'Raleway', sans-serif,;
+    font-weight: 600;
 }
 
-.active{
-    color: rgb(231, 111, 81);
+.navLogo {
+    height: 5rem;
 }
 
-.notActive{
-    color: rgb(42, 157, 143);
+@media (min-width: 1200px) {
+    .navMenu {
+        margin-left: 40rem;
+    }
+}
+
+.navMenu {
+    font-size: 1.2rem;
+    font-family: 'Raleway', sans-serif;
+    color: rgb(244, 162, 97);
 }

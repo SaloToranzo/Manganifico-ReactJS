@@ -1,22 +1,64 @@
-.itemDetailContainer{
+.itemDetail{
+    margin: 1.5rem 0rem;
+    padding: 1rem;
+    background-color: rgb(244, 162, 97);
+    border-top: 2rem;
+    border-color: whitesmoke;
+}
+
+.leftContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    grid-area: leftContainer;
+}
+
+.rightContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: rightContainer;
+    border: solid 0.5rem rgb(38, 70, 83);
+    border-radius: 1rem;
+}
+
+@media (min-width: 1200px){
+    .itemDetail{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: "leftContainer rightContainer";
+    }
 }
 .itemImg{
-    max-height: 300px;
-
+    height: 40rem;
 }
 
 .itemTitle{
-    color: blue;
+    color: rgb(38, 70, 83);
+    font-family: 'Raleway', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 .itemPrice{
-    color: red;
+    margin-top: 1rem;
+    color: rgb(38, 70, 83);
+    font-family: 'Raleway', sans-serif;
 }
 
-.itemDetail{
-    text-align: center;    
+.itemDescriptionContainer{
+    margin: 1rem;
+    max-width: 50rem;
+}
+.itemDescription{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;    
+}
+
+.countContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

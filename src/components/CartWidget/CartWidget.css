@@ -1,4 +1,19 @@
-.cartTotal{
-    background-color: black;
-    color: white;
+.cartIcon {
+    height: 2rem;
+    margin-top: 2rem;
+}
+
+.cartTotal {
+    color: rgb(38, 70, 83);
+    position: relative;
+    top: -2.7rem;
+    left: 1.2rem;
+    border-radius: 1rem;
+    background-color: rgb(231, 111, 81); 
+    padding: 3px;
+    text-align: center;
+    font-size: 0.9rem;
+    width: 1.9rem;
+    font-family: 'Raleway', sans-serif;
+
 }

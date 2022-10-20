@@ -18,22 +18,34 @@ const ItemDetail = ({product}) =>{
     };
 
     return (
-        <div className="itemDetailContainer">
-            <h2 className="itemTitle">{product.title}</h2>
-            <img src={product.image} alt={product.title} className="itemImg"/>
-            <h3 className="itemPrice">{product.price}</h3>
-            <p className="itemDetail">{product.description}</p>
-            <ItemCount
-                setCount={setCount}
-                count={count}
-                stock={product.stock}
-                />
-            <div className='cartBtn'>
-                <button className='addToCart' onClick={() => onAdd(product, count)}>Agregar al carrito</button>
+        <div className="itemDetail">
+            <div className='leftContainer'>
+                <img src={product.image} alt={product.title} className="itemImg" />
             </div>
-            <Link to={'/cart'} onClick={handleClick}>
-                Ir al carrito    
-            </Link>    
+
+            <div className='rightContainer'>
+                <div>
+                    <h2 className="itemTitle">{product.title}</h2>
+                </div>
+                <h3 className="itemPrice">${product.price}</h3>
+                <div className='countContainer'>
+                    <ItemCount
+                        setCount={setCount}
+                        count={count}
+                        stock={product.stock}
+                    />
+                    <div className='cartBtn'>
+                        <button className='addToCart' onClick={() => onAdd(product, count)}>Agregar al carrito</button>
+                    </div>
+                    <Link to={'/cart'} onClick={handleClick}>
+                        <button className='goToCart'>Ir al carrito</button>
+                    </Link>
+                </div>
+                <div className='itemDescriptionContainer'>
+                    <p className="itemDescription">{product.description}</p>
+                </div>
+            </div>
+
         </div>
     )
 };

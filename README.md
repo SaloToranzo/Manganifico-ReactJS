@@ -1,3 +1,28 @@
+#  MANGANÍFICO
+
+## _Proyecto Ecommerce en ReactJS_ 
+
+Este proyecto fue realizado para el curso de ReactJS de Coderhouse [![coderhouse](https://uploads-ssl.webflow.com/5f4d2915aacbff8a3255cf1b/60b68f6a34b2e95700900f3b_coderhouse-logo.svg)](https://www.coderhouse.com/)
+
+### Desarrolladora
+
+> María Salomé Toranzo
+> Contacto: [linkedin](https://www.linkedin.com/in/msalome-toranzo/)(https://im.ge/i/1g53DM)
+
+### Gif de demostracion 
+
+![Alt Text](https://i.ibb.co/vdbsvCw/Manganifico.gif)
+
+### Librerias utilizadas
+
+| Libreria                                                         | Utilizada                      |
+| ---------------------------------------------------------------- | ------------------------- |
+| [ReactJs](https://es.reactjs.org/)                               | JavaScript framework      |
+| [Create React App](https://github.com/facebook/create-react-app) | Create React Project      |
+| [SweetAlert2](https://sweetalert2.github.io/)                    | SweetAlert2               |
+| [Firebase](https://firebase.google.com/?hl=es)                   | Authentication & DataBase |
+| [React Router](https://reactrouter.com/)                         | Router                    |
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,3 +1,97 @@
+.cartContainer{
+    margin: 1.5rem 0rem;
+    padding: 1rem;
+    background-color: rgb(244, 162, 97);
+    border-top: 2rem;
+    border-color: whitesmoke;
+    text-align: center;
+}
+
+@media (min-width:1200px) {
+    .emptyContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cartGrid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: "cartLeft cartRight";
+
+    }
+}
+.cartLeft{
+    grid-area: cartLeft;
+}
+
+.cartRight{
+    grid-area: cartRight;
+}
+.emptyContainer{
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .cartImg{
     max-height: 100px;
+}
+
+.emptyText{
+    color: rgb(38, 70, 83);
+    font-family: 'Raleway', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.backButton{
+    margin: 5rem;
+    background-color: transparent;
+    color: white;
+    background-color: rgb(38, 70, 83);
+    border: transparent;
+    font-size: 1.5rem;
+}
+    .backButton:hover{
+        transform: scale(1.2);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+
+.itemInCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cartDetail{
+    display: flex;
+    flex-direction: column;
+}
+
+.deleteItem{
+        margin: 1.5rem;
+        background-color: transparent;
+        color: white;
+        background-color: rgb(38, 70, 83);
+        border: transparent;
+    }
+        .deleteItem:hover{
+            transform: scale(1.1);
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+.cartDetailContainer{
+    display: block;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

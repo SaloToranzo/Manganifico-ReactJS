@@ -1,9 +1,3 @@
-.greetingStyle{
-    font-size: 30px;
-    color: whitesmoke;
-    background-color: rgb(230, 127, 127);
+.itemListContainer{
+    background-color: rgb(244, 162, 97);
 };
-
-*{
-    background-color: rgb(42, 157, 143);
-}

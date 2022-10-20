@@ -1,14 +1,58 @@
-.itemContainer{
-    padding: 15px;
-}
-.itemImg{
-    height: 150px;
+.cardItem {
+  margin: 2rem;
+  height: 26rem;
+  justify-content: center;
+  border-radius: 2%;
+  border: 2px rgb(42, 157, 143) solid;
+  background-color: rgb(42, 157, 143);
+  max-width: 12rem;
 }
 
-.itemTitle{
-    color: blue;
+.cardItem:hover{
+  box-shadow: 10px 11px 19px 1px rgba(117,114,114,0.7);
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 
-.itemPrice{
-    color: red;
+.card-img-top{
+  max-width: 12rem;
+  height: 17rem;
 }
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-title {
+  padding: 1rem;
+  font-size: 1.3rem;
+  font-family: 'Raleway', sans-serif;
+  color: white
+}
+.card-text{
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  font-family: 'Raleway', sans-serif;
+  color: white
+}
+  
+  @media (max-width: 600px)  {
+    .card_item {
+      margin: 0px;
+    }
+      .card {
+        height: 16rem;
+        width: 9rem;
+        font-size: 10px ;
+        margin:8px;
+      }
+      .card h5 {
+        padding:3px;
+        font-size: 12px ;
+        }
+        .card-body {
+        padding: 1px;
+        }
+    }

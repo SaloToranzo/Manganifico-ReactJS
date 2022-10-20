@@ -1,13 +1,23 @@
 import './Cart.css';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import { collection, addDoc, getFirestore, updateDoc, doc } from 'firebase/firestore';
 import moment from 'moment';
+import Swal from 'sweetalert2'
 
 const Cart = () => {
-    const { cart, removeItem, clearCart } = useContext(CartContext);
-    console.log('cart', cart)
+    const { cart, removeItem, clearCart, TotalInCart } = useContext(CartContext);
+    const [order, setOrder] = useState({
+        buyer: {
+          name: "",
+          phone: "",
+          email: "",
+        },
+        items: cart,
+        total: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
+        date: moment().format("DD/MM/YYYY, h:mm:ss a")
+      });
 
     const db = getFirestore();
 
@@ -26,9 +36,19 @@ const Cart = () => {
         addDoc(query, order)
         .then(({id}) => {
             console.log(id)
-            alert('Compra finalizada')
+            Swal.fire({
+                icon: 'success',
+                title: `'Gracias por tu compra'`,
+                text: `'Tu número de orden es: ${id}'`,
+            })
         })
-        .catch(() => alert('Fallo la compra'))
+        .catch(() => Swal.fire({
+            icon: 'error',
+            title: '¡Algo salió mal!',
+            text: 'Hubo un error al completar la compra. Por favor intenta de nuevo.',
+           
+          })
+        )
     };
 
     const updateOrder = () =>{
@@ -53,42 +73,83 @@ const Cart = () => {
         })
     }
 
+    const handleInputChange = (e) => {
+
+        setOrder({
+            ...order,
+            buyer: {
+                ...order.buyer,
+                [e.target.name]: e.target.value,
+            }
+        });
+    };
 
 
     return (
-        <div>
-            <h1>Carrito</h1>
-            {cart.length > 0 ?
-                <button onClick={() => clearCart()}>Vaciar carrito</button>
-                : ''}
+        <div className='cartContainer'>
             {cart.length === 0 ? (
-                <>
-                    <h2>No hay productos en el carrito</h2>
-                    <Link to={'/'}>Volver a comprar</Link>
-                </>
-            ) : (
-                <>
+                <div className='emptyContainer'>
+                    <h1 className='emptyText'>No tienes productos en tu carrito</h1>
+                    <Link to={'/'}>
+                        <button className='backButton'>Ver productos</button>
+                    </Link>
+                </div>
+            ) :
+            
+            (
+                <div className='cartGrid'>
                     {cart.map((item) => (
                         <div key={item.id}>
-                            <p>{item.title}</p>
-                            <img src={item.image} className="cartImg" alt={item.title} />
-                            <p>{item.price}</p>
-                            <p>{item.quantity}</p>
-                            <button onClick={() => removeItem(item.id)}>
-                                Eliminar producto del carrito
-                            </button>
+                            <div className='cartLeft'>
+                                <div className='itemInCart'>
+                                    <p className='cartTitle'>{item.title}</p>
+                                    
+                                        <div className='cartImgContainer'>
+                                            <img src={item.image} className="cartImg" alt={item.title} />
+                                        </div>
+                                        <div className='cartDetail'>
+                                            <p className='cartPrice'>${item.price}</p>
+                                            <p className='cartQuantity'>Cantidad: {item.quantity}</p>
+                                            <p className='subtotal'>Subtotal: ${item.quantity * item.price}</p>
+                                        </div>
+                                    <button onClick={() => removeItem(item.id)} className='deleteItem'>
+                                        Eliminar producto del carrito
+                                    </button>
+                                </div>
+                            </div>
+                            {/* <div>
+                                <button onClick={updateOrder}>Actualizar compra</button>
+                            </div> */}
                         </div>
                     ))}
-                </>
+                    <div className='cartRight'>
+                            <div className='total'>
+                                <p>Precio final: ${TotalInCart()}</p>
+                            </div>
+                            <div className='form'>
+                                <div className='formText'>
+                                    Para finalizar, completa tus datos
+                                </div>
+                                <input className="input" name="name" type="text" placeholder="Nombre" value={order.buyer.name} onChange={handleInputChange} />
+
+                                <input className="input" name="phone" type="phone" placeholder="Phone" value={order.buyer.phone} onChange={handleInputChange} />
+
+                                <input className="input" name="email" type="email" placeholder="Email" value={order.buyer.email} onChange={handleInputChange} />
+                            </div>
+                            <div>
+                                <button onClick={createOrder}>
+                                    Finalizar compra
+                                </button>
+                            </div>
+                            <div>
+                                <button onClick={clearCart}>
+                                    Vaciar carrito
+                                </button>
+                            </div>
+                    </div>
+                </div>
             )}
-            <div>
-                <button onClick={createOrder}>
-                    Finalizar compra
-                </button>
-            </div>
-            <div>
-                <button onClick={updateOrder}>Actualizar compra</button>
-            </div>
+            
         </div>
     )
 }

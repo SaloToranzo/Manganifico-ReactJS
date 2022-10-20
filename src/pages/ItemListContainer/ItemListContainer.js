@@ -21,7 +21,7 @@ const ItemListContainer = () => {
         if(categoryId){
             const queryFilter = query(
                 querySnapshot, 
-                where('categoryId', '==', categoryId
+                where('categoryId', "array-contains", categoryId
             ));
             getDocs(queryFilter).then((response) =>{
                 const data = response.docs.map((product) =>{
